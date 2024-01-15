@@ -1,0 +1,31 @@
+### Get all demands
+GET http://localhost:3000/demand
+
+### Find demand by id
+GET http://localhost:3000/demand/2
+
+
+### Create Demand
+POST http://localhost:3000/demand
+Content-Type: application/json
+
+{
+  "description": "description",
+  "periodStart": "1705361398",
+  "periodEnd": "1705361398",
+  "totalPlan": "200"
+}
+
+### Update Demand
+PATCH http://localhost:3000/demand/1
+Content-Type: application/json
+
+{
+  "description": "description",
+  "periodStart": "1705361398",
+  "periodEnd": "1705361398",
+  "totalPlan": "201"
+}
+
+### Delete Demand
+DELETE http://localhost:3000/demand/1
