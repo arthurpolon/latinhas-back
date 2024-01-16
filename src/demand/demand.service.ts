@@ -11,10 +11,7 @@ export class DemandService {
 
   create(createDemandDto: CreateDemandDto) {
     const demand = this.repo.create({
-      description: createDemandDto.description,
-      periodEnd: createDemandDto.periodEnd,
-      periodStart: createDemandDto.periodStart,
-      totalPlan: Number(createDemandDto.totalPlan),
+      ...createDemandDto,
       status: 'planning',
     });
 

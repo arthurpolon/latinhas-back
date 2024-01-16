@@ -21,6 +21,8 @@ export class Demand {
   @Column()
   status: 'planning' | 'in_progress' | 'completed';
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   description?: string;
 }

@@ -10,21 +10,23 @@ POST http://localhost:3000/demand
 Content-Type: application/json
 
 {
-  "description": "description",
-  "periodStart": "1705361398",
-  "periodEnd": "1705361398",
-  "totalPlan": "200"
+  "periodStart": "2024-01-16T00:03:21.788Z",
+  "periodEnd": "2024-01-16T00:03:21.788Z",
+  "totalPlan": "200",
+  "id": 5
 }
 
 ### Update Demand
-PATCH http://localhost:3000/demand/1
+PATCH http://localhost:3000/demand/125
 Content-Type: application/json
 
 {
   "description": "description",
-  "periodStart": "1705361398",
-  "periodEnd": "1705361398",
-  "totalPlan": "201"
+  "periodStart": "2024-01-16T00:03:21.788Z",
+  "periodEnd": "2024-01-16T00:03:21.788Z",
+  "totalPlan": "201",
+  "status": "completed",
+  "id": 123
 }
 
 ### Delete Demand
