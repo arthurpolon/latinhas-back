@@ -18,8 +18,5 @@ export class CreateDemandDto {
   totalPlan: number;
 
   @IsDateString()
-  periodStart: string;
-
-  @IsDateString()
-  periodEnd: string;
+  date: string;
 }

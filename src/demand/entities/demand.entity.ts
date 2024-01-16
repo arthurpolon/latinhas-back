@@ -13,6 +13,11 @@ export class Demand {
   @Column()
   totalPlan: number;
 
+  @Column({
+    type: 'date',
+  })
+  date: string;
+
   @Column()
   status: 'planning' | 'in_progress' | 'completed';
 
