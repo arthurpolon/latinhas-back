@@ -1,4 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Demand {
@@ -8,16 +13,6 @@ export class Demand {
   @Column()
   totalPlan: number;
 
-  @Column({
-    type: 'date',
-  })
-  periodStart: string;
-
-  @Column({
-    type: 'date',
-  })
-  periodEnd: string;
-
   @Column()
   status: 'planning' | 'in_progress' | 'completed';
 
@@ -25,4 +20,7 @@ export class Demand {
     nullable: true,
   })
   description?: string;
+
+  @CreateDateColumn()
+  created_at: string;
 }

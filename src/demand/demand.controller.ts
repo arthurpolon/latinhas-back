@@ -7,10 +7,12 @@ import {
   Param,
   Delete,
   NotFoundException,
+  Query,
 } from '@nestjs/common';
 import { DemandService } from './demand.service';
 import { CreateDemandDto } from './dto/create-demand.dto';
 import { UpdateDemandDto } from './dto/update-demand.dto';
+import { PageOptionsDto } from 'src/dto/page-options.dto';
 
 @Controller('demand')
 export class DemandController {
@@ -22,8 +24,8 @@ export class DemandController {
   }
 
   @Get()
-  findAll() {
-    return this.demandService.findAll();
+  findAll(@Query() pageOptionsDto: PageOptionsDto) {
+    return this.demandService.findAll(pageOptionsDto);
   }
 
   @Get(':id')

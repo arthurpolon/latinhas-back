@@ -4,6 +4,9 @@ import { UpdateDemandDto } from './dto/update-demand.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Demand } from './entities/demand.entity';
 import { Repository } from 'typeorm';
+import { PageOptionsDto } from 'src/dto/page-options.dto';
+import { PageMetaDto } from 'src/dto/page-meta.dto';
+import { PageDto } from 'src/dto/page.dto';
 
 @Injectable()
 export class DemandService {
@@ -18,8 +21,18 @@ export class DemandService {
     return this.repo.save(demand);
   }
 
-  findAll() {
-    return this.repo.find();
+  async findAll(pageOptionsDto: PageOptionsDto) {
+    const [demands, count] = await this.repo.findAndCount({
+      skip: pageOptionsDto.skip,
+      take: pageOptionsDto.take,
+      order: {
+        created_at: pageOptionsDto?.order,
+      },
+    });
+
+    const pageMetaDto = new PageMetaDto({ itemCount: count, pageOptionsDto });
+
+    return new PageDto(demands, pageMetaDto);
   }
 
   findOne(id: number) {
